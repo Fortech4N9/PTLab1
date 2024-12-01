@@ -23,7 +23,9 @@ class TestTextDataReader:
         return text, data
 
     @pytest.fixture()
-    def filepath_and_data(self, file_and_data_content: tuple[str, DataType], tmpdir) -> tuple[str, DataType]:
+    def filepath_and_data(
+            self, file_and_data_content: tuple[str, DataType], tmpdir)\
+            -> tuple[str, DataType]:
         p = tmpdir.mkdir("datadir").join("my_data.txt")
         p.write_text(file_and_data_content[0], encoding='utf-8')
 
