@@ -11,15 +11,22 @@ class JsonDataReader(DataReader):
             with open(path, 'r', encoding='utf-8') as file:
                 data = json.load(file)
                 if not isinstance(data, dict):
-                    raise TypeError("Invalid JSON format: Expected a dictionary at the top level.")
+                    raise TypeError(
+                        "Invalid JSON format: "
+                        "Expected a dictionary at the top level.")
                 for key, value in data.items():
                     if not isinstance(value, list):
-                        raise TypeError(f"Invalid JSON format: Expected a list for student '{key}'.")
+                        raise TypeError(
+                            f"Invalid JSON format: "
+                            f"Expected a list for student '{key}'.")
                     for item in value:
-                        if not isinstance(item, list) or len(item) != 2 or not isinstance(item[0],
-                                                                                          str) or not isinstance(
-                                item[1], int):
-                            raise TypeError(f"Invalid JSON format: Incorrect subject-score pair for student '{key}'.")
+                        if not isinstance(item, list) or len(
+                                item) != 2 or not isinstance(
+                                item[0], str) or not isinstance(item[1], int):
+                            raise TypeError(
+                                f"Invalid JSON format: "
+                                f"Incorrect "
+                                f"subject-score pair for student '{key}'.")
 
                 return data
 

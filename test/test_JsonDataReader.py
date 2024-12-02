@@ -36,12 +36,14 @@ class TestJsonDataReader:
         return json_string, expected_data
 
     @pytest.fixture()
-    def filepath_and_data(self, valid_json_data: tuple[str, DataType], tmpdir) -> tuple[str, DataType]:
+    def filepath_and_data(self, valid_json_data: tuple[str, DataType],
+                          tmpdir) -> tuple[str, DataType]:
         p = tmpdir.mkdir("datadir").join("data.json")
         p.write_text(valid_json_data[0], encoding='utf-8')
         return str(p), valid_json_data[1]
 
-    def test_read_valid_json(self, filepath_and_data: tuple[str, DataType]) -> None:
+    def test_read_valid_json(self, filepath_and_data: tuple[str, DataType])\
+            -> None:
         reader = JsonDataReader()
         data = reader.read(filepath_and_data[0])
         assert data == filepath_and_data[1]
