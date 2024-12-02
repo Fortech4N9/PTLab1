@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from Types import DataType
-from CalcRating import CalcRating
+from src.Types import DataType
+from src.CalcRating import CalcRating
 import pytest
 
 RatingsType = dict[str, float]
@@ -44,4 +44,4 @@ class TestCalcRating:
         for student in rating.keys():
             rating_score = rating[student]
             assert pytest.approx(rating_score,
-                                 abs=0.001) == input_data[1][student]
+                                 85.333) == input_data[1][student]

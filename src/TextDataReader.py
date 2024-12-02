@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from Types import DataType
-from DataReader import DataReader
+from src.Types import DataType
+from src.DataReader import DataReader
 
 
 class TextDataReader(DataReader):
@@ -16,6 +16,6 @@ class TextDataReader(DataReader):
                     self.students[self.key] = []
                 else:
                     subj, score = line.split(":", maxsplit=1)
-                    self.students[self.key].append((subj.strip(),
-                                                    int(score.strip())))
+                    self.students[self.key].append(
+                        (subj.strip(), int(score.strip())))
         return self.students
