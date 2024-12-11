@@ -4,6 +4,7 @@ import sys
 from CalcRating import CalcRating
 from TextDataReader import TextDataReader
 from JsonDataReader import JsonDataReader
+from QuartileCalc import QuartileCalc
 
 
 def get_path_and_format_from_arguments(args) -> tuple[str, str]:
@@ -38,6 +39,8 @@ def main():
     rating = CalcRating(students).calc()
     print("Rating: ", rating)
 
+    quartile_students = QuartileCalc(rating).calc()
+    print("Students in the last quartile:", quartile_students)
 
 if __name__ == "__main__":
     main()
