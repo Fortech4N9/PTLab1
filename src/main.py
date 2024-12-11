@@ -42,5 +42,6 @@ def main():
     quartile_students = QuartileCalc(rating).calc()
     print("Students in the last quartile:", quartile_students)
 
+
 if __name__ == "__main__":
     main()
