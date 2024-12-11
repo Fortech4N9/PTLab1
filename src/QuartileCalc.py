@@ -1,6 +1,7 @@
 # src/QuartileCalc.py
 from src.Types import DataType, RatingType
 
+
 class QuartileCalc:
     def __init__(self, rating: RatingType) -> None:
         self.rating = rating
